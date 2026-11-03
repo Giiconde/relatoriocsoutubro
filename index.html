@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Giovanna Conde - CS G30</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#000000',
+                        beige: '#f4f1ea',
+                        teal: '#1f7a8c',
+                        orange: '#FF5000',
+                        alert: '#b5472a',
+                        bordercolor: '#dcd6c8'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        body {
+            background-color: #f4f1ea;
+            color: #14213d;
+        }
+
+        /* Estilos para elementos editáveis */
+        [contenteditable="true"] {
+            transition: all 0.2s ease-in-out;
+            border-radius: 4px;
+            padding: 2px 4px;
+            margin: -2px -4px;
+            outline: none;
+        }
+
+        [contenteditable="true"]:hover, [contenteditable="true"]:focus {
+            background-color: rgba(31, 122, 140, 0.1);
+            box-shadow: inset 0 0 0 1px rgba(31, 122, 140, 0.3);
+            cursor: text;
+        }
+
+        .dark-bg [contenteditable="true"]:hover, .dark-bg [contenteditable="true"]:focus {
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Ocultar elementos na impressão */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background-color: #ffffff;
+            }
+            .print-break-inside-avoid {
+                break-inside: avoid;
+            }
+            .shadow-sm, .shadow-md, .shadow-lg {
+                box-shadow: none !important;
+                border: 1px solid #dcd6c8;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #1f7a8c;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8 font-sans">
+
+    <!-- Header / Nav -->
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center mb-8 no-print">
+        <div>
+            <h2 class="text-teal font-bold text-lg"><i class="fa-solid fa-chart-pie mr-2"></i>Dashboard CS G30</h2>
+            <p class="text-sm text-gray-600 mt-1">💡 Clique em qualquer texto ou número para editar o conteúdo.</p>
+        </div>
+        <div class="mt-4 md:mt-0 space-x-3">
+            <button onclick="window.print()" class="bg-teal hover:bg-opacity-90 text-white px-5 py-2 rounded-lg font-medium transition-colors shadow-sm">
+                <i class="fa-solid fa-file-pdf mr-2"></i> Salvar / PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="max-w-7xl mx-auto space-y-6">
+
+        <!-- Banner / Hero Section -->
+        <div class="bg-navy rounded-2xl p-8 md:p-10 shadow-lg dark-bg print-break-inside-avoid relative overflow-hidden">
+            <div class="absolute top-0 right-0 -mt-10 -mr-10 opacity-10">
+                <i class="fa-solid fa-chart-line text-[15rem] text-orange"></i>
+            </div>
+            <div class="relative z-10">
+                <div contenteditable="true" class="text-orange font-bold text-xl md:text-2xl mb-2 tracking-wide uppercase">
+                    CUSTOMER SUCCESS · G30
+                </div>
+                <h1 contenteditable="true" class="text-beige font-bold text-4xl md:text-6xl mb-4 leading-tight">
+                    Resultados de Outubro
+                </h1>
+                <div class="flex items-center text-beige/80 text-lg md:text-xl space-x-2">
+                    <i class="fa-solid fa-user-circle"></i>
+                    <span contenteditable="true">Giovanna Conde</span>
+                    <span class="px-2">·</span>
+                    <i class="fa-solid fa-calendar-alt"></i>
+                    <span contenteditable="true">01/10 a 31/10/2026</span>
+                </div>
+                <p contenteditable="true" class="text-beige/60 text-sm mt-3">Relatório de Desempenho&nbsp;</p>
+            </div>
+        </div>
+
+        <!-- Outubro em Números (Top Metrics) -->
+        <div>
+            <h2 contenteditable="true" class="text-2xl font-bold text-navy mb-4 ml-1"><i class="fa-solid fa-hashtag mr-2 text-teal"></i>Outubro em números</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                
+                <!-- Metric 1 -->
+                <div class="bg-white p-5 rounded-xl border border-bordercolor shadow-sm flex flex-col justify-between print-break-inside-avoid hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-list-check text-2xl text-teal mb-3"></i>
+                    <div contenteditable="true" class="text-4xl font-bold text-orange leading-none mb-2">281</div>
+                    <div contenteditable="true" class="text-sm font-medium text-navy leading-tight">atividades concluídas no CRM</div>
+                </div>
+
+                <!-- Metric 2 -->
+                <div class="bg-white p-5 rounded-xl border border-bordercolor shadow-sm flex flex-col justify-between print-break-inside-avoid hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-phone-volume text-2xl text-teal mb-3"></i>
+                    <div contenteditable="true" class="text-4xl font-bold text-orange leading-none mb-2">692</div>
+                    <div contenteditable="true" class="text-sm font-medium text-navy leading-tight">ligações realizadas</div>
+                </div>
+
+                <!-- Metric 3 -->
+                <div class="bg-white p-5 rounded-xl border border-bordercolor shadow-sm flex flex-col justify-between print-break-inside-avoid hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-briefcase text-2xl text-teal mb-3"></i>
+                    <div contenteditable="true" class="text-4xl font-bold text-orange leading-none mb-2">143</div>
+                    <div contenteditable="true" class="text-sm font-medium text-navy leading-tight">negócios atendidos (clientes e prospects)</div>
+                </div>
+
+                <!-- Metric 4 -->
+                <div class="bg-white p-5 rounded-xl border border-bordercolor shadow-sm flex flex-col justify-between print-break-inside-avoid hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-users text-2xl text-teal mb-3"></i>
+                    <div contenteditable="true" class="text-4xl font-bold text-orange leading-none mb-2">22</div>
+                    <div contenteditable="true" class="text-sm font-medium text-navy leading-tight">reuniões: 5 Lions, 9 tráfego, 8 alinhamentos</div>
+                </div>
+
+                <!-- Metric 5 -->
+                <div class="bg-white p-5 rounded-xl border border-bordercolor shadow-sm flex flex-col justify-between print-break-inside-avoid hover:shadow-md transition-shadow">
+                    <i class="fa-regular fa-clock text-2xl text-teal mb-3"></i>
+                    <div contenteditable="true" class="text-4xl font-bold text-orange leading-none mb-2">70 h e 34 min</div>
+                    <div contenteditable="true" class="text-sm font-medium text-navy leading-tight">em blocos de contato ativo, em 21 dias úteis</div>
+                </div>
+
+                <!-- Metric 6 -->
+                <div class="bg-white p-5 rounded-xl border border-bordercolor shadow-sm flex flex-col justify-between print-break-inside-avoid hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-graduation-cap text-2xl text-teal mb-3"></i>
+                    <div contenteditable="true" class="text-4xl font-bold text-orange leading-none mb-2">5</div>
+                    <div contenteditable="true" class="text-sm font-medium text-navy leading-tight">treinamentos de CS + reunião mensal HandsOn</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Middle Section: Feirão & Retenção -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <!-- Mega Feirão -->
+            <div class="lg:col-span-2 bg-white rounded-xl border border-bordercolor shadow-sm p-6 print-break-inside-avoid">
+                <h2 contenteditable="true" class="text-2xl font-bold text-navy mb-6"><i class="fa-solid fa-car-side mr-2 text-teal"></i>Mega Feirão: Resultados Coletados</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-beige p-4 rounded-lg">
+                        <div contenteditable="true" class="text-3xl font-bold text-orange">68</div>
+                        <div contenteditable="true" class="text-sm text-navy mt-1">veículos vendidos (14 lojas)</div>
+                    </div>
+                    <div class="bg-beige p-4 rounded-lg">
+                        <div contenteditable="true" class="text-3xl font-bold text-orange">R$ 1,35 mi</div>
+                        <div contenteditable="true" class="text-sm text-navy mt-1">financiados informados (soma parcial)</div>
+                    </div>
+                    <div class="bg-beige p-4 rounded-lg">
+                        <div contenteditable="true" class="text-3xl font-bold text-orange">18</div>
+                        <div contenteditable="true" class="text-sm text-navy mt-1">lojas contatadas na coleta</div>
+                    </div>
+                </div>
+                <div class="bg-teal/5 p-5 rounded-lg border border-teal/20">
+                    <h3 contenteditable="true" class="text-lg font-bold text-teal mb-3">Destaques</h3>
+                    <ul class="list-disc list-inside text-navy space-y-2">
+                        <li contenteditable="true">Loja com 14 vendas para meta de 15 (R$ 723 mil financiados)</li>
+                        <li contenteditable="true">Loja com 8 vendas contra meta alcançável de 6</li>
+                        <li contenteditable="true">Loja com 13 motos vendidas; 62 atividades de apoio com metas, criativos e lives</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Check-in e Retenção -->
+            <div class="bg-white rounded-xl border border-bordercolor shadow-sm p-6 flex flex-col gap-6 print-break-inside-avoid">
+                <div>
+                    <h2 contenteditable="true" class="text-xl font-bold text-teal mb-3"><i class="fa-solid fa-calendar-check mr-2"></i>Check-in de Setembro</h2>
+                    <ul class="list-none text-navy space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-green-600 mt-1 mr-2 text-sm"></i>
+                            <span contenteditable="true">35 atividades de check-in registradas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-green-600 mt-1 mr-2 text-sm"></i>
+                            <span contenteditable="true">8 lojas com dados completos: 146 carros e 82 motos vendidos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-exclamation text-orange mt-1 mr-2 text-sm"></i>
+                            <span contenteditable="true">Maiores dificuldades: follow-up, baixa conversão, engajar a equipe</span>
+                        </li>
+                    </ul>
+                </div>
+                <hr class="border-bordercolor">
+                <div>
+                    <h2 contenteditable="true" class="text-xl font-bold text-alert mb-3"><i class="fa-solid fa-heart-crack mr-2"></i>Retenção</h2>
+                    <ul class="list-none text-navy space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-minus text-alert mt-1 mr-2 text-sm"></i>
+                            <span contenteditable="true">16 registros de remoção de acessos de clientes cancelados</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-rotate-left text-teal mt-1 mr-2 text-sm"></i>
+                            <span contenteditable="true">1 cliente revertido: cancelou só a vitrine</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-triangle-exclamation text-alert mt-1 mr-2 text-sm"></i>
+                            <span contenteditable="true">Mapeamento de risco de churn em cliente inacessível, com nova cadência até 31/10</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Estratégias Section -->
+        <div>
+            <h2 contenteditable="true" class="text-2xl font-bold text-navy mb-4 ml-1"><i class="fa-solid fa-chess-knight mr-2 text-teal"></i>Destaques Estratégicos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                
+                <div class="bg-navy text-white p-6 rounded-xl shadow-sm print-break-inside-avoid dark-bg">
+                    <h3 contenteditable="true" class="text-xl font-bold text-orange mb-4"><i class="fa-solid fa-medal mr-2"></i>Qualicarro</h3>
+                    <ul class="list-none space-y-3 text-beige/90">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-angle-right text-orange mt-1 mr-2"></i>
+                            <span contenteditable="true">4 alinhamentos entre 15 e 21/10</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-angle-right text-orange mt-1 mr-2"></i>
+                            <span contenteditable="true">Plano 5W2H: de 14 carros/mês para meta de 24 a 30</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-angle-right text-orange mt-1 mr-2"></i>
+                            <span contenteditable="true">Foco em gestão comercial e integração da equipe</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-navy text-white p-6 rounded-xl shadow-sm print-break-inside-avoid dark-bg">
+                    <h3 contenteditable="true" class="text-xl font-bold text-orange mb-4"><i class="fa-solid fa-chart-simple mr-2"></i>Tráfego</h3>
+                    <ul class="list-none space-y-3 text-beige/90">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-angle-right text-orange mt-1 mr-2"></i>
+                            <span contenteditable="true">9 reuniões de tráfego e alinhamento</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-angle-right text-orange mt-1 mr-2"></i>
+                            <span contenteditable="true">Iniciantes apoiados na primeira campanha</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-angle-right text-orange mt-1 mr-2"></i>
+                            <span contenteditable="true">Cadastro G30 IA e criativos do feirão</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-navy text-white p-6 rounded-xl shadow-sm print-break-inside-avoid dark-bg">
+                    <h3 contenteditable="true" class="text-xl font-bold text-orange mb-4"><i class="fa-regular fa-calendar-check mr-2"></i>Eventos</h3>
+                    <ul class="list-none space-y-3 text-beige/90">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-angle-right text-orange mt-1 mr-2"></i>
+                            <span contenteditable="true">5 apresentações Lions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-angle-right text-orange mt-1 mr-2"></i>
+                            <span contenteditable="true">Presencial de 02/10 com clientes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-angle-right text-orange mt-1 mr-2"></i>
+                            <span contenteditable="true">10 convites WLCL BH e 27 lembretes PITSTOP</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CS Highlights & Revenue Expansion Section -->
+        <div>
+            <h2 contenteditable="true" class="text-2xl font-bold text-navy mb-4 ml-1"><i class="fa-solid fa-star mr-2 text-teal"></i>Destaques de CS & Expansão de Receita</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-2">
+                
+                <!-- Análise de Atuação CS -->
+                <div class="bg-white rounded-xl border border-bordercolor shadow-sm p-6 print-break-inside-avoid">
+                    <h3 contenteditable="true" class="text-xl font-bold text-teal mb-4"><i class="fa-solid fa-award mr-2"></i>Análise de Atuação</h3>
+                    <ul class="list-none text-navy space-y-4">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check-circle text-green-600 mt-1 mr-2 text-lg"></i>
+                            <span contenteditable="true"><strong>Alto Engajamento:</strong> Forte suporte aos clientes em ações de massa (Mega feirão, PITSTOP, WLCL Joinville, encontro potenciais LIONS, Operação DE VOLTA PRO JOGO), garantindo adesão às campanhas, tráfego e vitrines.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check-circle text-green-600 mt-1 mr-2 text-lg"></i>
+                            <span contenteditable="true"><strong>Gestão de Risco Pró-ativa:</strong> Ação rápida em reversões e criação de cadências ativas para engajar clientes inacessíveis e prevenir churn.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check-circle text-green-600 mt-1 mr-2 text-lg"></i>
+                            <span contenteditable="true"><strong>Alto Engajamento:</strong> Forte suporte aos clientes em ações de massa (Mega Feirão), garantindo adesão às campanhas, tráfego e vitrines.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check-circle text-green-600 mt-1 mr-2 text-lg"></i>
+                            <span contenteditable="true"><strong>Expansão de Carteira:</strong> Análise estratégica de potenciais cross-sell + Upsell - resultando em 30 agendamentos (carchat, vitrine e Lions).</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Expansão de Receita (Cross-sell / Upsell) -->
+                <div class="bg-white rounded-xl border border-bordercolor shadow-sm p-6 print-break-inside-avoid">
+                    <h3 contenteditable="true" class="text-xl font-bold text-teal mb-5"><i class="fa-solid fa-arrow-trend-up mr-2"></i>Expansão de Receita Realizada</h3>
+                    
+                    <div class="mb-5">
+                        <h4 contenteditable="true" class="font-bold text-orange mb-2 text-lg"><i class="fa-solid fa-cart-plus mr-1"></i> Cross-sell</h4>
+                        <ul class="list-none text-navy space-y-2 ml-1">
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-plus text-teal mr-2 text-xs"></i>
+                                <span contenteditable="true"><strong>Comfort Auto:</strong> Carvoice</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-plus text-teal mr-2 text-xs"></i>
+                                <span contenteditable="true"><strong>Suellen Jcars:</strong> Vitrine</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-plus text-teal mr-2 text-xs"></i>
+                                <span contenteditable="true"><strong>Mayra 424 veículos:</strong> Vitrine</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-plus text-teal mr-2 text-xs"></i>
+                                <span contenteditable="true"><strong>Qualicarro:</strong> Carchat + Carvoice</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 contenteditable="true" class="font-bold text-orange mb-2 text-lg"><i class="fa-solid fa-level-up-alt mr-1"></i> Upsell</h4>
+                        <ul class="list-none text-navy space-y-2 ml-1">
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-arrow-up text-teal mr-2 text-xs"></i>
+                                <span contenteditable="true"><strong>Forlim Multimarcas:</strong> LIONS</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Bottom Section: Pontos de Atenção & Plano Novembro -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-8">
+            
+            <div class="bg-white border-l-4 border-alert rounded-r-xl shadow-sm p-6 print-break-inside-avoid">
+                <h2 contenteditable="true" class="text-2xl font-bold text-alert mb-5"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Pontos de Atenção</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h3 contenteditable="true" class="font-bold text-navy mb-2">Execução dos clientes</h3>
+                        <ul class="list-disc list-inside text-navy/80 space-y-1">
+                            <li contenteditable="true">Loja sem campanhas no ar vendeu 0 de 15, com no-show nas reuniões de tráfego</li>
+                            <li contenteditable="true">Chuvas reduziram o movimento em lojas</li>
+                            <li contenteditable="true">Clientes veem a G30 como solução só para lojas grandes</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 contenteditable="true" class="font-bold text-navy mb-2">Processo</h3>
+                        <ul class="list-disc list-inside text-navy/80 space-y-1">
+                            <li contenteditable="true">Financiamento Santander não aprovado em 5 lojas: a observação trazida é que, ao incluir nosso cupom, o valor da parcela ficava maior</li>
+                            <li contenteditable="true">2 atividades de primeiro impacto vencidas (23 e 24/10)</li>
+                            <li contenteditable="true">Cliente inacessível com risco de cancelamento</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border-l-4 border-teal rounded-r-xl shadow-sm p-6 print-break-inside-avoid">
+                <h2 contenteditable="true" class="text-2xl font-bold text-teal mb-5"><i class="fa-solid fa-map-location-dot mr-2"></i>Plano para Novembro</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h3 contenteditable="true" class="font-bold text-navy mb-2">Fechar Outubro</h3>
+                        <ul class="list-disc list-inside text-navy/80 space-y-1">
+                            <li contenteditable="true">Coletar valor financiado das lojas pendentes</li>
+                            <li contenteditable="true">Concluir cadência de risco até 31/10</li>
+                            <li contenteditable="true">Registrar resultados finais do feirão estendido</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 contenteditable="true" class="font-bold text-navy mb-2">Crescer a carteira</h3>
+                        <ul class="list-disc list-inside text-navy/80 space-y-1">
+                            <li contenteditable="true">Check-in mensal de outubro</li>
+                            <li contenteditable="true">Giro de estoque e cross-sell</li>
+                            <li contenteditable="true">Primeira campanha para iniciantes e Lions para novos clientes</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 contenteditable="true" class="font-bold text-navy mb-2">Eventos e Capacitação</h3>
+                        <ul class="list-disc list-inside text-navy/80 space-y-1">
+                            <li contenteditable="true">Treinamentos dos produtos da G30 para Fenauto (11, 12 e 13 de novembro)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body></html>
